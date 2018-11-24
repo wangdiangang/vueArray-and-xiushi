@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>字符串、节点、DOM、数组、 Date</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#字符串节点dom数组-date">字符串、节点、DOM、数组、 Date</a></li>
+<li><a href="#数组的方法">数组的方法</a></li>
+<li><a href="#dom">DOM</a></li>
+<li><a href="#节点的属性">节点的属性</a></li>
+<li><a href="#动态操作dom元素">动态操作DOM元素</a></li>
+<li><a href="#字符串的方法">字符串的方法</a></li>
+<li><a href="#date">Date</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h1 id="字符串节点dom数组-date">字符串、节点、DOM、数组、 Date</h1>
+
+
+
+<h1 id="数组的方法">数组的方法</h1>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">方法</td>  <td align="center">作用</td>  <td align="center">参数</td>  <td align="center">返回值</td>  <td align="center">原有数组是否发生改变</td></tr><tr>  <td align="center"><strong>push</strong></td>  <td align="center">向数组末尾新增一项</td>  <td align="center">新增的那一项</td>  <td align="center">新增后的数组</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center"><strong>pop</strong></td>  <td align="center">删除数组最后一项</td>  <td align="center">不需要传参</td>  <td align="center">删除的那一项</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center"><strong>unshift</strong></td>  <td align="center">向数组开头新增一项</td>  <td align="center">需要传参</td>  <td align="center">新增数组的成员</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center"><strong>shift</strong></td>  <td align="center">删除第一项</td>  <td align="center">不需要传参</td>  <td align="center">删除的那一项</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center"><strong>slice</strong></td>  <td align="center">数组的截取</td>  <td align="center">slice(m,n)从数组索引m开始，截取到索引n处(不包含n)n&gt;m</td>  <td align="center">返回值时截取的数组</td>  <td align="center">不反生改变</td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">slice(m)从索引m开始，截取到末尾</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">slice()相当于复制一份数组</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">slice(m，-n)从索引m开始，到数组.length-n处</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center"><strong>splice</strong></td>  <td align="center">删除数组中的某几项</td>  <td align="center">splice(m,n)从索引m开始，删除n个</td>  <td align="center">删除的那几项，并以数组返回</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">splice(m)从索引m开始，删除到末尾</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">splice()删除所有的</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">splice(m,n,x)从索引m开始，删除n个，把x值增加到m前面</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center"><strong>sort</strong></td>  <td align="center">数组的排序，按照最大位数排序</td>  <td align="center">sort()只能排列数组成员相同位数的数组</td>  <td align="center">排序后的数组</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">sort(function(a,b){return a-b})从小到大排序</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center">：</td>  <td align="center">：</td>  <td align="center">sort(function(a,b){return b-a})从大到小排序</td>  <td align="center">：</td>  <td align="center">：</td></tr><tr>  <td align="center"><strong>reverse</strong></td>  <td align="center">数组颠倒</td>  <td align="center">不需要</td>  <td align="center">数组成员颠倒过来后的数组</td>  <td align="center"><strong>发生改变</strong></td></tr><tr>  <td align="center"><strong>concat</strong></td>  <td align="center">数组的拼接</td>  <td align="center">不传参数，数组的克隆；</td>  <td align="center">拼接之后的新数组</td>  <td align="center">不发生改变</td></tr><tr>  <td align="center">:</td>  <td align="center">:</td>  <td align="center">传参数:(数组，每一项)把传入的参数拼接到数组中</td>  <td align="center">:</td>  <td align="center">:</td></tr><tr>  <td align="center"><strong>join</strong></td>  <td align="center">把数组成员按照特定字符连接成一个字符</td>  <td align="center">不传参，会默认按照“，”分开</td>  <td align="center">拼接后的字符串</td>  <td align="center">不发生变化</td></tr><tr>  <td align="center">:</td>  <td align="center">:</td>  <td align="center">传参，会按照特定字符拼接</td>  <td align="center">:</td>  <td align="center">:</td></tr><tr>  <td align="center"><strong>indexOf</strong></td>  <td align="center">检测数组成员在数组中第一次出现的位置，判断当前项是否在数组中存在，不存在返回<strong>-1</strong></td>  <td align="center">需要</td>  <td align="center">第一次出现的索引</td>  <td align="center">不反生改变</td></tr><tr>  <td align="center"><strong>lastIndexOf</strong></td>  <td align="center">检测数组成员在数组中最后一次出现的位置</td>  <td align="center">：</td>  <td align="center">最后一次出现的索引位置</td>  <td align="center">：</td></tr><tr>  <td align="center"><strong>map</strong></td>  <td align="center">数组的遍历、映射</td>  <td align="center">需要传参（必须是个函数）</td>  <td align="center">映射之后的数组</td>  <td align="center">不发生变化</td></tr><tr>  <td align="center"><strong>forEach</strong></td>  <td align="center">数组的遍历</td>  <td align="center">：</td>  <td align="center">没有返回值（没有return）undefined</td>  <td align="center">：</td></tr><tr>  <td align="center"><strong>toString</strong></td>  <td align="center">转字符串</td>  <td align="center">不需要传参</td>  <td align="center">返回一个去了[]的字符</td>  <td align="center">不发生改变</td></tr></tbody></table>
+
+
+
+<h1 id="dom">DOM</h1>
+
+<blockquote>
+  <ul><li>document.getElementById(“id名”)；</li>
+  <li>document.getElementsByTagName(“标签名”)；</li>
+  <li>document.getElementsByClassName(“class名字”) <br>
+  <ul>
+  <li>类数组集合，IE8及以下不兼容</li></ul></li>
+  <li>document.getElementsByName(“name属性”) <br>
+  <ul>
+  <li>通过name属性来获取元素，一般用于获取表单元素</li>
+  <li>在IE9及以下会默认把ID名是a的获取到</li></ul></li>
+  <li>document.documentElement <br>
+  <ul>
+  <li>获取当前HTML</li></ul></li>
+  <li>document.body；获取body</li>
+  <li>document.documentElement.clientWidth获取当前浏览器可视区域宽</li>
+  <li>document.documentElement.clientHeight获取当前浏览器可视区域高</li>
+  <li>document.querySelector(  )移动端获取元素，如果是ID前面需要加”#”,如果是class加<strong>“.”</strong></li>
+  <li>document.querySelectorAll(  )：复数，</li>
+  </ul>
+</blockquote>
+
+
+
+<h1 id="节点的属性">节点的属性</h1>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">方式</td>  <td align="center">属性</td></tr><tr>  <td align="center">childNodes</td>  <td align="center">获取当前元素的所有<strong>子节点</strong></td></tr><tr>  <td align="center">children</td>  <td align="center">获取当前元素的<strong>子元素</strong>节点；IE8及以下不兼容</td></tr><tr>  <td align="center">firstChild</td>  <td align="center">获取<strong>第一个子节点</strong></td></tr><tr>  <td align="center">firstElementChild</td>  <td align="center">获取<strong>第一个子元素节点</strong>；IE8及以下不兼容</td></tr><tr>  <td align="center">lastChild</td>  <td align="center">获取<strong>最后一个子节点</strong></td></tr><tr>  <td align="center">lastElementChild</td>  <td align="center">获取<strong>最后一个子元素节点</strong>；IE8及以下不兼容</td></tr><tr>  <td align="center">previousSibling</td>  <td align="center">获取上一个<strong>哥哥节点</strong></td></tr><tr>  <td align="center">previousElementSibling</td>  <td align="center">获取上一个<strong>哥哥元素节点</strong>；IE8及以下不兼容</td></tr><tr>  <td align="center">nextSibling</td>  <td align="center">获取下一个<strong>弟弟节点</strong></td></tr><tr>  <td align="center">nextElementSibling</td>  <td align="center">获取下一个<strong>弟弟元素节点</strong>；IE8及以下不兼容</td></tr><tr>  <td align="center">parentNode</td>  <td align="center">获取当前元素父亲节点</td></tr></tbody></table>
+
+
+
+<h1 id="动态操作dom元素">动态操作DOM元素</h1>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">//</td>  <td align="center">//</td></tr><tr>  <td align="center">document.createElement</td>  <td align="center">创建元素</td></tr><tr>  <td align="center">appendChild</td>  <td align="center">向父元素末尾添加子节点</td></tr><tr>  <td align="center">removeChild</td>  <td align="center">删除子节点</td></tr><tr>  <td align="center">replaceChild</td>  <td align="center">替换节点</td></tr><tr>  <td align="center">insertBefore</td>  <td align="center">把元素节点插入到某个节点的前面</td></tr><tr>  <td align="center">cloneNode</td>  <td align="center">复制节点</td></tr><tr>  <td align="center">set/get/remove/ Attribute</td>  <td align="center">设置/获取/删除自定义属性</td></tr><tr>  <td align="center">classList</td>  <td align="center"></td></tr><tr>  <td align="center">//add()</td>  <td align="center">增加class属性</td></tr><tr>  <td align="center">//remove（）</td>  <td align="center">移除class属性</td></tr><tr>  <td align="center">//replace( , )</td>  <td align="center">替换class属性</td></tr></tbody></table>
+
+
+
+<h1 id="字符串的方法">字符串的方法</h1>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">///</td>  <td align="center">///</td></tr><tr>  <td align="center">toUpperCase()</td>  <td align="center">把小写字母转成大写字母</td></tr><tr>  <td align="center">toLowerCase()</td>  <td align="center">把大写转换成小写</td></tr><tr>  <td align="center">charAt()</td>  <td align="center">通过索引获取字符</td></tr><tr>  <td align="center">charCodeAt()</td>  <td align="center">通过索引获取对应字符的Unicode编码</td></tr><tr>  <td align="center">substr(m,n)</td>  <td align="center">截取字符;从索引m开始，截取n个</td></tr><tr>  <td align="center">substring(m,n)</td>  <td align="center">从索引m开始，截取到n，不包含n，n是负数的话往前截取</td></tr><tr>  <td align="center">slice(m,n)</td>  <td align="center">从索引m开始，截取到索引n，支持负数</td></tr><tr>  <td align="center">indexOf()</td>  <td align="center">检测字符在字符串中<strong>第一次</strong>出现的位置，如果字符不存在返回<strong>-1</strong></td></tr><tr>  <td align="center">lastIndexOf()</td>  <td align="center">检测字符在字符串中<strong>最后一次</strong>出现的位置，如果字符不存在返回<strong>-1</strong></td></tr><tr>  <td align="center">split()</td>  <td align="center">把字符串按照特定的字符分割成每一项</td></tr><tr>  <td align="center">repalce(old,new)</td>  <td align="center">替换</td></tr><tr>  <td align="center">concat</td>  <td align="center">拼接</td></tr><tr>  <td align="center">trim    -Left/Right</td>  <td align="center">去空格，只能去除字符串中左右两边的空格,去掉左边或者右边空格</td></tr></tbody></table>
+
+
+
+<h1 id="date">Date</h1>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">代码执行</td>  <td align="center">获取属性</td>  <td align="center">取值</td></tr><tr>  <td align="center">time.getFullYear()</td>  <td align="center">年</td>  <td align="center"></td></tr><tr>  <td align="center">time.getMouth()</td>  <td align="center">月</td>  <td align="center">0-11</td></tr><tr>  <td align="center">time.getDate()</td>  <td align="center">日</td>  <td align="center">1-31</td></tr><tr>  <td align="center">time.getDay()</td>  <td align="center">星期</td>  <td align="center">0-6</td></tr><tr>  <td align="center">time.getHovers()</td>  <td align="center">小时</td>  <td align="center">0-23</td></tr><tr>  <td align="center">time.getMintes()</td>  <td align="center">分钟</td>  <td align="center">0-59</td></tr><tr>  <td align="center">time.getSeconds()</td>  <td align="center">秒</td>  <td align="center">0-59</td></tr><tr>  <td align="center">time.getMilliseconds()</td>  <td align="center">毫秒</td>  <td align="center">0-999</td></tr></tbody></table></div></body></html>
