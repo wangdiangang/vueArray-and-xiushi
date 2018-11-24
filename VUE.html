@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head><title>VUE</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#vue">VUE</a><ul>
+<li><a href="#es6新增的数组的方法">es6新增的数组的方法</a></li>
+<li><a href="#认识vue">认识vue</a></li>
+<li><a href="#vue方法">VUE方法</a></li>
+<li><a href="#vue事件对象">vue事件对象</a><ul>
+<li><a href="#键盘事件只能在input框中">键盘事件只能在input框中</a></li>
+<li><a href="#vue实例内容">vue实例内容</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h1 id="vue">VUE</h1>
+
+
+
+<h2 id="es6新增的数组的方法">es6新增的数组的方法</h2>
+
+<blockquote>
+  <p><strong>filter过滤</strong>  ;把符合条件的放进新数组中；原有数组不发生改变；</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span>  arr = [<span class="hljs-number">100</span>,<span class="hljs-number">80</span>,<span class="hljs-number">56</span>,<span class="hljs-number">101</span>];
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> newArr  = arr.filter(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span>{
+</div><div class="hljs-line"> <span class="hljs-keyword">return</span> item&gt;<span class="hljs-number">70</span>;
+</div><div class="hljs-line">    })
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(newArr)<span class="hljs-comment">//[100,80,101]</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(arr);<span class="hljs-comment">//[100,80,56,101]</span>
+</div></code></pre>
+
+<blockquote>
+  <p><strong>find查找</strong>  :查找；从左到右一次进行查找；找到符合条件的第一项，并且把这一项返回；结束整个函数</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span>  arr = [<span class="hljs-number">34</span>,<span class="hljs-number">80</span>,<span class="hljs-number">56</span>,<span class="hljs-number">101</span>,<span class="hljs-number">100</span>];
+</div><div class="hljs-line">     <span class="hljs-keyword">let</span> val = arr.find(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span>{
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> item&gt;<span class="hljs-number">90</span>;
+</div><div class="hljs-line">    });
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(val);<span class="hljs-comment">//101  </span>
+</div></code></pre>
+
+<blockquote>
+  <p><strong>some</strong> : 返回一个布尔值；如果有符合条件的返回true，如果没有找到符合条件的，返回是false； <br>
+    如果有符合条件的，那么不再循环，直接停止整个函数；返回true； <br>
+     如果没找到，会循环所有项，并且返回false</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">   <span class="hljs-keyword">let</span>  arr = [<span class="hljs-number">34</span>,<span class="hljs-number">80</span>,<span class="hljs-number">56</span>,<span class="hljs-number">101</span>];
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> a = arr.some(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> item&gt;<span class="hljs-number">80</span>;
+</div><div class="hljs-line">    });
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//true</span>
+</div></code></pre>
+
+<blockquote>
+  <p><strong>every</strong> :返回一个布尔值；true或false；必须要求每一项都返回true，整体结果返回true；只要有一个是false，整体结果就是false；</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"> <span class="hljs-keyword">let</span>  arr = [<span class="hljs-number">34</span>,<span class="hljs-number">80</span>,<span class="hljs-number">56</span>,<span class="hljs-number">101</span>];
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> t = arr.every(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> item&gt;<span class="hljs-number">34</span>;
+</div><div class="hljs-line">    })
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(t);<span class="hljs-comment">//false</span>
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+<blockquote>
+  <p><strong>includes</strong> : 包含；检测是否包含某一项；如果包含返回true，不包含返回false</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"> <span class="hljs-keyword">let</span>  arr = [<span class="hljs-number">34</span>,<span class="hljs-number">80</span>,<span class="hljs-number">56</span>,<span class="hljs-number">101</span>];
+</div><div class="hljs-line"> <span class="hljs-built_in">console</span>.log(arr.includes(<span class="hljs-number">81</span>));<span class="hljs-comment">//false</span>
+</div></code></pre>
+
+<blockquote>
+  <p><strong>reduce</strong> :收敛；求和 <br>
+  reduce第二个参数，代表回调函数中的第一次的prev</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"> <span class="hljs-keyword">let</span>  arr = [<span class="hljs-number">34</span>,<span class="hljs-number">80</span>,<span class="hljs-number">56</span>,<span class="hljs-number">101</span>,<span class="hljs-number">999</span>];
+</div><div class="hljs-line">     <span class="hljs-keyword">let</span> yy = arr.reduce(<span class="hljs-function">(<span class="hljs-params">prev,next</span>)=&gt;</span>{
+</div><div class="hljs-line">         <span class="hljs-comment">// prev : 输出上一次回调函数的返回值；【第一次除外】</span>
+</div><div class="hljs-line">         <span class="hljs-built_in">console</span>.log(prev,next);  
+</div><div class="hljs-line">                <span class="hljs-number">34</span> <span class="hljs-number">80</span>
+</div><div class="hljs-line">                   <span class="hljs-number">114</span> <span class="hljs-number">56</span>
+</div><div class="hljs-line">                       <span class="hljs-number">170</span> <span class="hljs-number">101</span>
+</div><div class="hljs-line">                           <span class="hljs-number">271</span> <span class="hljs-number">999</span>
+</div><div class="hljs-line">         <span class="hljs-keyword">return</span>  prev+next;
+</div><div class="hljs-line">     },<span class="hljs-number">0</span>);
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(yy);<span class="hljs-comment">//1270</span>
+</div></code></pre>
+
+
+
+<h2 id="认识vue">认识vue</h2>
+
+<blockquote>
+  <p>写法不一样：记下来；明白框架的使用 <br>
+  声明式框架：不关心如何实现的 <br>
+  是一个MVVM框架；m:model   v:view   vm:view-model <br>
+  model:数据模型 <br>
+  view：视图 <br>
+  view-model：数据和视图之间数据的传递； <br>
+  MVC：model view controller  数据单项通信，只能通过数据影响视图， <br>
+  MVVM：model(后端返回的数据)和view是不能直接进行通信的；需要通过view-model来进行数据的传递  model-&gt;view：绑定数据view–&gt;model:DOM的监听事件【发布订阅模式】</p>
+  
+  <p>数据是响应式的，当数据发生变化，会自动影响视图，当视图发生变化，会影响数据–&gt;数据的双向绑定</p>
+</blockquote>
+
+<ul><li>双向数据绑定  vue利用object.defineproperty这个方法遍历data中的所有属性，给每一个属性增加setter方法和getter方法；当数据发生变化时，会触发set方法，当获取数据时，会触发getter方法；</li>
+<li>object.definedproperty在IE8以下不兼容的 是es5新增的方法，data中所有的属性最终被vm这个实例所代理；</li>
+</ul>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">指令指令指令指令指令指令指令指令指令</td>  <td align="center">含义</td></tr><tr>  <td align="center">v-model</td>  <td align="center">把input的value的值和data的某个属性进行绑定； v-model一般用于表单元素；复选框  单选框 下拉框</td></tr><tr>  <td align="center">v-text</td>  <td align="center">把数据绑定DOM元素中，具有响应式；并且会把之前的进行覆盖</td></tr><tr>  <td align="center">v-html</td>  <td align="center">可以识别标签</td></tr><tr>  <td align="center">v-if</td>  <td align="center">当属性值为true，则显示当前元素，为false，那么显示v-else的元素，组合控制的时DOM元素的存在，不是控制display：none</td></tr><tr>  <td align="center">v-show</td>  <td align="center">控制元素的显示隐藏；通过控制css的display属性来实现显示和隐藏</td></tr><tr>  <td align="center">v-bind 缩写<strong>:</strong></td>  <td align="center">用于绑定动态的属性  <img alt="">可省略v-bind  直接前面加一个冒号(<strong>:</strong>)就可取到动态的属性，一般用于img标签上的src前面</td></tr><tr>  <td align="center">v-cloak</td>  <td align="center">用于元素加载数据比较多时，vue解析时间比较长；为了防止{{}}的出现，给该元素加上v-cloak属性；直到vue中把DOM数据插入到真实DOM中时，让当前的元素显示；</td></tr></tbody></table>
+
+
+
+<h2 id="vue方法">VUE方法</h2>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">//</td>  <td align="center">方法</td></tr><tr>  <td align="center">filters</td>  <td align="center">过滤器</td></tr><tr>  <td align="center">Vue.filter</td>  <td align="center">全局注册过滤器</td></tr><tr>  <td align="center">methods</td>  <td align="center">把需要操作的函数放在这个对象中</td></tr></tbody></table>
+
+
+
+<h2 id="vue事件对象">vue事件对象</h2>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">修饰符</td>  <td align="center">//</td></tr><tr>  <td align="center">@click/@move…</td>  <td align="center">事件</td></tr><tr>  <td align="center">.prevent</td>  <td align="center">阻止事件默认行为阻止a标签</td></tr><tr>  <td align="center">.stop</td>  <td align="center">阻止事件的冒泡传播</td></tr><tr>  <td align="center">.capture</td>  <td align="center">事件行为在捕获阶段执行</td></tr><tr>  <td align="center">.once</td>  <td align="center">只执行一次</td></tr><tr>  <td align="center">.self</td>  <td align="center">只有触发自己的时候才会执行</td></tr></tbody></table>
+
+
+
+<h3 id="键盘事件只能在input框中">键盘事件只能在input框中</h3>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">//</td>  <td align="center">//</td></tr><tr>  <td align="center">@keydown</td>  <td align="center">事件</td></tr><tr>  <td align="center">.enter</td>  <td align="center">回车</td></tr><tr>  <td align="center">.left/.right/.up/.down</td>  <td align="center">左you</td></tr></tbody></table>
+
+
+
+<h3 id="vue实例内容">vue实例内容</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">&lt;div id=<span class="hljs-string">"app"</span>&gt;
+</div><div class="hljs-line"><span class="hljs-comment">//vue所有的操作都写在这里面</span>
+</div><div class="hljs-line">&lt;son&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">son</span>&gt;</span></span> <span class="hljs-comment">//使用组件</span>
+</div><div class="hljs-line">&lt;<span class="hljs-regexp">/div&gt;</span>
+</div><div class="hljs-line"><span class="hljs-regexp">&lt;script&gt;</span>
+</div><div class="hljs-line"><span class="hljs-regexp">let son={/</span><span class="hljs-regexp">/creat组件</span>
+</div><div class="hljs-line"><span class="hljs-regexp">       data() {</span>
+</div><div class="hljs-line"><span class="hljs-regexp">            return {}</span>
+</div><div class="hljs-line"><span class="hljs-regexp">        },</span>
+</div><div class="hljs-line"><span class="hljs-regexp">        components: { },</span>
+</div><div class="hljs-line"><span class="hljs-regexp">        template: "&lt;div&gt;son&lt;/</span>div&gt;<span class="hljs-string">"</span>
+</div><div class="hljs-line"><span class="hljs-string">}//把son放在下面的components  要写在vm上面</span>
+</div><div class="hljs-line"><span class="hljs-string"></span>
+</div><div class="hljs-line"><span class="hljs-string">let vm=new Vue({</span>
+</div><div class="hljs-line"><span class="hljs-string">   el:'#app',//获取id叫app的元素 </span>
+</div><div class="hljs-line"><span class="hljs-string">   data:{}，//数据</span>
+</div><div class="hljs-line"><span class="hljs-string">   created(){}//钩子函数</span>
+</div><div class="hljs-line"><span class="hljs-string">   computed:{},//计算属性放在computed里面,不支持异步  依赖 多对一</span>
+</div><div class="hljs-line"><span class="hljs-string">   里面放函数，默认调用get方法，对象的话里面有set和get函数</span>
+</div><div class="hljs-line"><span class="hljs-string">   watch:{},监听data中的某个属性，  支持异步    监听  一对多</span>
+</div><div class="hljs-line"><span class="hljs-string">   filters:{}//管道服务时的方法放在里面</span>
+</div><div class="hljs-line"><span class="hljs-string">   directives:{}//自定义指令</span>
+</div><div class="hljs-line"><span class="hljs-string">   components:{使用组件}//外面定义的组件  或者组件在里面定义</span>
+</div><div class="hljs-line"><span class="hljs-string">   methods:{}//方法  一般存储的是方法，比如点击事件</span>
+</div><div class="hljs-line"><span class="hljs-string">   template:{}模板</span>
+</div><div class="hljs-line"><span class="hljs-string">})</span>
+</div><div class="hljs-line"><span class="hljs-string">&lt;/script&gt;</span>
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">(a,index) <span class="hljs-keyword">in</span>  arr : <span class="hljs-comment">//循环数组时 a 代表是数组的每一项，index代表索引</span>
+</div><div class="hljs-line">&lt;li v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"(a,index) in arr"</span>&gt;{{a}}{{index}}&lt;<span class="hljs-regexp">/li&gt;</span>
+</div><div class="hljs-line"><span class="hljs-regexp"> /</span><span class="hljs-regexp">/在循环对象中，如果只有一个值，那么得到是属性值；第二个参数代表是属性名,第三个代表的是索引</span>
+</div><div class="hljs-line"><span class="hljs-regexp">&lt;li v-for="(a,b,index) in  obj"&gt;{{a}}{{b}}{{index}}&lt;/</span>li&gt;
+</div></code></pre></div></body></html>
